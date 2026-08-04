@@ -33,17 +33,18 @@ export default function ChatScreen() {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
   const listRef = useRef<FlatList<Message>>(null);
+  const nextId = useRef(1);
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
 
   function send(text: string) {
     const trimmed = text.trim();
     if (!trimmed) return;
-    const userMessage: Message = { id: `u-${Date.now()}`, from: 'user', text: trimmed };
+    const userMessage: Message = { id: `u-${nextId.current++}`, from: 'user', text: trimmed };
     setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setTimeout(() => {
-      const botMessage: Message = { id: `b-${Date.now()}`, from: 'bot', text: generateReply(trimmed) };
+      const botMessage: Message = { id: `b-${nextId.current++}`, from: 'bot', text: generateReply(trimmed) };
       setMessages((prev) => [...prev, botMessage]);
       requestAnimationFrame(() => listRef.current?.scrollToEnd({ animated: true }));
     }, 500);

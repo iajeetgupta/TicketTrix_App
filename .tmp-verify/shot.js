@@ -1,19 +1,17 @@
 const { chromium } = require('playwright');
 
 const BASE = 'http://localhost:8098';
-const OUT = 'C:\\Users\\akars\\AppData\\Local\\Temp\\claude\\c--Users-akars-Desktop-TicketTrix-App\\19771f09-a2a3-48a4-ac71-a978f9b21274\\scratchpad\\shots';
+const OUT = 'C:\\Users\\akars\\AppData\\Local\\Temp\\claude\\c--Users-akars-Desktop-TicketTrix-App\\19771f09-a2a3-48a4-ac71-a978f9b21274\\scratchpad\\shots2';
 
 const routes = [
   { path: '/', name: 'home' },
-  { path: '/flights', name: 'flights' },
-  { path: '/flights/results?from=New%20Delhi&to=Goa&date=Today', name: 'flights-results' },
-  { path: '/hotels', name: 'hotels' },
-  { path: '/hotels/results?city=Mumbai', name: 'hotels-results' },
-  { path: '/hotels/ht-worli-sky', name: 'hotel-detail' },
-  { path: '/bus', name: 'bus' },
-  { path: '/bus/results?from=New%20Delhi&to=Manali&date=Today', name: 'bus-results' },
   { path: '/trips', name: 'trips' },
-  { path: '/account', name: 'account' },
+  { path: '/wallet', name: 'wallet' },
+  { path: '/chat', name: 'chat' },
+  { path: '/profile', name: 'profile' },
+  { path: '/flights', name: 'flights' },
+  { path: '/hotels', name: 'hotels' },
+  { path: '/bus', name: 'bus' },
 ];
 
 const viewports = [
